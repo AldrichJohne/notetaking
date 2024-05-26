@@ -1,7 +1,8 @@
 # SET-UP
--   Open a git bash/IDE terminal in your local machine where you want to clone the repository
+-   Open a git bash in your local machine's folder where you want to clone the repository
 -   Clone repository (run the ff command) 
     - git clone https://github.com/AldrichJohne/notetaking.git
+-   Open the Project by your IDE    
 -   Run the project
 
 # HOW TO USE THE API's
