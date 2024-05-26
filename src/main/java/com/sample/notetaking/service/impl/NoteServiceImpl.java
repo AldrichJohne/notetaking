@@ -19,7 +19,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public Either<EitherLeftDto, NotesDto> createNote(Note noteDto) {
-        log.info("Validating Create Note request");
+        log.info("Validating Create Note Request");
         if ("".equals(noteDto.getTitle())
                 || "".equals(noteDto.getBody())
                 || noteDto.getTitle() == null
@@ -63,6 +63,14 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public Either<EitherLeftDto, NotesDto> updateNote(int id, Note noteDto) {
+        log.info("Validating Update Note Request");
+        if ("".equals(noteDto.getTitle())
+                || "".equals(noteDto.getBody())
+                || noteDto.getTitle() == null
+                || noteDto.getBody() == null) {
+            log.error("Invalid Update Note request");
+            return Either.left(new EitherLeftDto(HttpStatus.BAD_REQUEST, "Missing required field"));
+        }
         try {
             log.info("Updating Note with ID {} and Updated Note Value {}", id, noteDto);
             storage.updateNote(id, noteDto.getTitle(), noteDto.getBody());
