@@ -1,13 +1,12 @@
 package com.sample.notetaking.storage;
 
 import com.sample.notetaking.model.Note;
-import com.sample.notetaking.model.response.NoteResponse;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DataStorage {
-    private static Map<Integer, Note> noteStorageMap = new ConcurrentHashMap<>();
+    private static final Map<Integer, Note> noteStorageMap = new ConcurrentHashMap<>();
 
     private DataStorage() {
     }

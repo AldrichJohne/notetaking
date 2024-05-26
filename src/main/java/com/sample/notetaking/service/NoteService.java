@@ -1,21 +1,22 @@
 package com.sample.notetaking.service;
 
 import com.sample.notetaking.model.Note;
-import com.sample.notetaking.model.response.NoteResponse;
+import com.sample.notetaking.model.response.EitherLeftDto;
+import com.sample.notetaking.model.response.NotesDto;
 import io.vavr.control.Either;
 
 import java.util.List;
 
 public interface NoteService {
-    public Either<String, NoteResponse> createNote(Note noteDto);
+    Either<EitherLeftDto, NotesDto> createNote(Note noteDto);
 
-    public Either<String, List<NoteResponse>> getNotes();
+    Either<EitherLeftDto, List<NotesDto>> getNotes();
 
-    public Either<String, NoteResponse> getNote(int id);
+    Either<EitherLeftDto, NotesDto> getNote(int id);
 
-    public Either<String, NoteResponse> updateNote(int id, Note noteDto);
+    Either<EitherLeftDto, NotesDto> updateNote(int id, Note noteDto);
 
-    public Either<String, String> deleteNote(int id);
+    Either<EitherLeftDto, String> deleteNote(int id);
 
 
 }
